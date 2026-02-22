@@ -92,7 +92,7 @@ namespace pvpgn
 		typedef const char*	(STDCALL *f_mysql_error)(MYSQL*);
 		typedef MYSQL_FIELD*	(STDCALL *f_mysql_fetch_fields)(MYSQL_RES*);
 		typedef MYSQL_ROW(STDCALL *f_mysql_fetch_row)(MYSQL_RES*);
-		typedef my_bool(STDCALL *f_mysql_free_result)(MYSQL_RES*);
+		typedef bool (STDCALL *f_mysql_free_result)(MYSQL_RES*);
 		typedef MYSQL*		(STDCALL *f_mysql_init)(MYSQL*);
 		typedef unsigned int	(STDCALL *f_mysql_num_fields)(MYSQL_RES*);
 		typedef my_ulonglong(STDCALL *f_mysql_num_rows)(MYSQL_RES*);
@@ -172,7 +172,7 @@ namespace pvpgn
 			// mysql->reconnect = 1;
 #endif
 #if MYSQL_VERSION_ID >= 50019
-			my_bool  my_true = true;
+			bool  my_true = true;
 			if (mysql_options(mysql, MYSQL_OPT_RECONNECT, &my_true)){
 				eventlog(eventlog_level_warn, __FUNCTION__, "Failed to turn on MYSQL_OPT_RECONNECT.");
 			}
@@ -190,7 +190,7 @@ namespace pvpgn
 
 #if MYSQL_VERSION_ID >= 50013
 #if MYSQL_VERSION_ID < 50019
-			my_bool  my_true = true;
+			bool  my_true = true;
 			if (mysql_options(mysql, MYSQL_OPT_RECONNECT, &my_true)){
 				eventlog(eventlog_level_warn, __FUNCTION__, "Failed to turn on MYSQL_OPT_RECONNECT.");
 			}
