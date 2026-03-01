@@ -115,6 +115,9 @@ cmake -DCMAKE_BUILD_TYPE="RelWithDebInfo" ../
 ```
 
 - On Linux, you may want to specify a custom installation directory by passing `-DCMAKE_INSTALL_PREFIX=/usr/local/pvpgn` to CMake.
+```
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/pvpgn -DCMAKE_BUILD_TYPE="RelWithDebInfo" -DWITH_MYSQL=true -D WITH_LUA=true ../
+```
 - Additional CMake options are:
   - `-DWITH_BNETD=true`
   - `-DWITH_D2CS=true`
